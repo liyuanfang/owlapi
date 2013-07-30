@@ -41,6 +41,9 @@ package org.semanticweb.owlapi.change;
 
 import org.semanticweb.owlapi.model.AddOntologyAnnotation;
 import org.semanticweb.owlapi.model.OWLAnnotation;
+import org.semanticweb.owlapi.model.OWLEntity;
+
+import java.util.Set;
 
 /**
  * Author: Matthew Horridge<br>
@@ -56,6 +59,7 @@ import org.semanticweb.owlapi.model.OWLAnnotation;
  * @since 3.5
  */
 public abstract class OntologyAnnotationChangeData extends OWLOntologyChangeData {
+
     private static final long serialVersionUID = 30402L;
 
     private final OWLAnnotation annotation;
@@ -94,5 +98,10 @@ public abstract class OntologyAnnotationChangeData extends OWLOntologyChangeData
         sb.append(annotation);
         sb.append(")");
         return sb.toString();
+    }
+
+    @Override
+    public Set<OWLEntity> getSignature() {
+        return annotation.getSignature();
     }
 }

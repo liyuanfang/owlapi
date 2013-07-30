@@ -39,13 +39,7 @@
 
 package uk.ac.manchester.cs.owl.owlapi;
 
-import org.semanticweb.owlapi.model.OWLDataFactory;
-import org.semanticweb.owlapi.model.OWLObjectVisitor;
-import org.semanticweb.owlapi.model.OWLObjectVisitorEx;
-import org.semanticweb.owlapi.model.SWRLIArgument;
-import org.semanticweb.owlapi.model.SWRLObjectVisitor;
-import org.semanticweb.owlapi.model.SWRLObjectVisitorEx;
-import org.semanticweb.owlapi.model.SWRLSameIndividualAtom;
+import org.semanticweb.owlapi.model.*;
 import org.semanticweb.owlapi.vocab.OWLRDFVocabulary;
 
 
@@ -64,7 +58,6 @@ public class SWRLSameIndividualAtomImpl extends SWRLBinaryAtomImpl<SWRLIArgument
 	public SWRLSameIndividualAtomImpl(OWLDataFactory dataFactory,SWRLIArgument arg0, SWRLIArgument arg1) {
         super(dataFactory.getOWLObjectProperty(OWLRDFVocabulary.OWL_SAME_AS.getIRI()), arg0, arg1);
     }
-
 
     @Override
     public void accept(OWLObjectVisitor visitor) {

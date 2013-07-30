@@ -56,7 +56,7 @@ import java.util.Set;
  * </p>
  * An ontology cannot be modified directly.  Changes must be applied via its <code>OWLOntologyManager</code>.
  */
-public interface OWLOntology extends OWLObject {
+public interface OWLOntology extends OWLObject, HasAxioms, HasLogicalAxioms, HasAxiomsByType, HasContainsAxiom, HasAnnotations {
 
     // XXX when the interfce changes, uncomment this
     //void accept(OWLNamedObjectVisitor visitor);
@@ -91,6 +91,7 @@ public interface OWLOntology extends OWLObject {
      *         no effect on the annotations in this ontology, similarly, any changes that affect the annotations on this
      *         ontology will not change the returned set.
      */
+    @Override
     Set<OWLAnnotation> getAnnotations();
 
     //////////////////////////////////////////////////////////////////////////////////////////////
@@ -204,6 +205,7 @@ public interface OWLOntology extends OWLObject {
      *         recommended that the <code>containsAxiom</code> method is used to determine whether or not this ontology
      *         contains a particular axiom rather than using getAxioms().contains().
      */
+    @Override
     Set<OWLAxiom> getAxioms();
 
 
@@ -222,6 +224,7 @@ public interface OWLOntology extends OWLObject {
      * @return A set of axioms which are of the type <code>OWLLogicalAxiom</code> The set that is returned is a copy of
      *         the axioms in the ontology - it will not be updated if the ontology changes.
      */
+    @Override
     Set<OWLLogicalAxiom> getLogicalAxioms();
 
 
@@ -239,6 +242,7 @@ public interface OWLOntology extends OWLObject {
      * @return A set containing the axioms which are of the specified type. The set that is returned is a copy of the
      *         axioms in the ontology - it will not be updated if the ontology changes.
      */
+    @Override
     <T extends OWLAxiom> Set<T> getAxioms(AxiomType<T> axiomType);
 
 
@@ -311,6 +315,7 @@ public interface OWLOntology extends OWLObject {
      * @return <code>true</code> if the ontology contains the specified axioms, or <code>false</code> if the ontology
      *         doesn't contain the specified axiom.
      */
+    @Override
     boolean containsAxiom(OWLAxiom axiom);
 
     /**

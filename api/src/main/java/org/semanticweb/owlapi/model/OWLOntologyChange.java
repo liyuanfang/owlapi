@@ -50,7 +50,7 @@ import org.semanticweb.owlapi.change.OWLOntologyChangeRecord;
  * Bio-Health Informatics Group
  * Date: 25-Oct-2006
  */
-public abstract class OWLOntologyChange {
+public abstract class OWLOntologyChange implements HasSignature {
 
     private final OWLOntology ont;
 

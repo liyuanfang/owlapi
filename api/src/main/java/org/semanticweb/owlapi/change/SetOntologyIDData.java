@@ -39,9 +39,13 @@
 
 package org.semanticweb.owlapi.change;
 
+import org.semanticweb.owlapi.model.OWLEntity;
 import org.semanticweb.owlapi.model.OWLOntology;
 import org.semanticweb.owlapi.model.OWLOntologyID;
 import org.semanticweb.owlapi.model.SetOntologyID;
+
+import java.util.Collections;
+import java.util.Set;
 
 /**
  * Author: Matthew Horridge<br>
@@ -57,6 +61,7 @@ import org.semanticweb.owlapi.model.SetOntologyID;
  * @since 3.5
  */
 public final class SetOntologyIDData extends OWLOntologyChangeData {
+
     private static final long serialVersionUID = 30402L;
 
     private final OWLOntologyID newId;
@@ -96,6 +101,11 @@ public final class SetOntologyIDData extends OWLOntologyChangeData {
             throw new NullPointerException("ontology must not be null");
         }
         return new SetOntologyID(ontology, newId);
+    }
+
+    @Override
+    public Set<OWLEntity> getSignature() {
+        return Collections.emptySet();
     }
 
     @Override

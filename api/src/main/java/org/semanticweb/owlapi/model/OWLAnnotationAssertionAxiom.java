@@ -47,13 +47,14 @@ package org.semanticweb.owlapi.model;
  * Represents <a href="http://www.w3.org/TR/2009/REC-owl2-syntax-20091027/#Annotation_Assertion">AnnotationAssertion</a> axioms
  * in the OWL 2 specification.
  */
-public interface OWLAnnotationAssertionAxiom extends OWLAnnotationAxiom {
+public interface OWLAnnotationAssertionAxiom extends OWLAnnotationAxiom, HasSubject<OWLAnnotationSubject> {
 
     /**
      * Gets the subject of the annotation assertion. This is either an {@link org.semanticweb.owlapi.model.IRI} or
      * an {@link org.semanticweb.owlapi.model.OWLAnonymousIndividual}.
      * @return The subject of the annotation
      */
+    @Override
     OWLAnnotationSubject getSubject();
 
     /**

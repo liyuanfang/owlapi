@@ -53,7 +53,7 @@ import java.util.Set;
  * An OWL ontology contains a set of axioms.  These axioms can be annotation axioms,
  * declaration axioms, imports axioms or logical axioms
  */
-public interface OWLAxiom extends OWLObject {
+public interface OWLAxiom extends OWLObject, HasAnnotations {
 	@SuppressWarnings("javadoc")
     void accept(OWLAxiomVisitor visitor);
 	@SuppressWarnings("javadoc")
@@ -63,6 +63,7 @@ public interface OWLAxiom extends OWLObject {
      * Gets the annotations that are annotate this axiom.
      * @return A set of annotations that annotate this axiom.
      */
+    @Override
     Set<OWLAnnotation> getAnnotations();
 
     /**

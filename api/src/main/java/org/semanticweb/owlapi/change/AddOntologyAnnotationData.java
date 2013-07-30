@@ -41,7 +41,10 @@ package org.semanticweb.owlapi.change;
 
 import org.semanticweb.owlapi.model.AddOntologyAnnotation;
 import org.semanticweb.owlapi.model.OWLAnnotation;
+import org.semanticweb.owlapi.model.OWLEntity;
 import org.semanticweb.owlapi.model.OWLOntology;
+
+import java.util.Set;
 
 /**
  * Author: Matthew Horridge<br>
@@ -57,6 +60,7 @@ import org.semanticweb.owlapi.model.OWLOntology;
  * @since 3.5
  */
 public final class AddOntologyAnnotationData extends OntologyAnnotationChangeData {
+
     private static final long serialVersionUID = 30402L;
 
     /**

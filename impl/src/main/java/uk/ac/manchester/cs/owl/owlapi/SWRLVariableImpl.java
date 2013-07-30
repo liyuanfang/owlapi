@@ -39,13 +39,7 @@
 
 package uk.ac.manchester.cs.owl.owlapi;
 
-import org.semanticweb.owlapi.model.IRI;
-import org.semanticweb.owlapi.model.OWLObject;
-import org.semanticweb.owlapi.model.OWLObjectVisitor;
-import org.semanticweb.owlapi.model.OWLObjectVisitorEx;
-import org.semanticweb.owlapi.model.SWRLObjectVisitor;
-import org.semanticweb.owlapi.model.SWRLObjectVisitorEx;
-import org.semanticweb.owlapi.model.SWRLVariable;
+import org.semanticweb.owlapi.model.*;
 
 /**
  * Author: Matthew Horridge<br>
@@ -69,7 +63,6 @@ public class SWRLVariableImpl extends OWLObjectImpl implements SWRLVariable {
     public IRI getIRI() {
         return iri;
     }
-
 
     @Override
 	final protected int compareObjectOfSameType(OWLObject object) {

@@ -72,6 +72,10 @@ public abstract class OWLValueRestrictionImpl<R extends OWLPropertyRange, P exte
         return value;
     }
 
+    @Override
+    public V getFiller() {
+        return value;
+    }
 
     @Override
 	public boolean equals(Object obj) {

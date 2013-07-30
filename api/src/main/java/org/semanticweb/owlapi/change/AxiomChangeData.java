@@ -40,6 +40,9 @@
 package org.semanticweb.owlapi.change;
 
 import org.semanticweb.owlapi.model.OWLAxiom;
+import org.semanticweb.owlapi.model.OWLEntity;
+
+import java.util.Set;
 
 /**
  * Author: Matthew Horridge<br>
@@ -52,6 +55,7 @@ import org.semanticweb.owlapi.model.OWLAxiom;
  * </p>
  */
 public abstract class AxiomChangeData extends OWLOntologyChangeData {
+
     private static final long serialVersionUID = 30402L;
 
     private final OWLAxiom axiom;
@@ -74,5 +78,10 @@ public abstract class AxiomChangeData extends OWLOntologyChangeData {
      */
     public OWLAxiom getAxiom() {
         return axiom;
+    }
+
+    @Override
+    public Set<OWLEntity> getSignature() {
+        return axiom.getSignature();
     }
 }

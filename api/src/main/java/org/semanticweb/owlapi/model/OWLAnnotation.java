@@ -54,7 +54,7 @@ import java.util.Set;
  * An annotation is equal to another annotation if both objects have equal
  * annotation URIs and have equal annotation values
  */
-public interface OWLAnnotation extends OWLObject {
+public interface OWLAnnotation extends OWLObject, HasAnnotations {
 
     /**
      * Gets the property that this annotation acts along
@@ -88,6 +88,7 @@ public interface OWLAnnotation extends OWLObject {
      *
      * @return A (possibly empty) set of annotations that annotate this annotation
      */
+    @Override
     Set<OWLAnnotation> getAnnotations();
 
     /**

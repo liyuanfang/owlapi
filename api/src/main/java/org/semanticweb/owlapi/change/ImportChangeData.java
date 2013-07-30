@@ -39,7 +39,11 @@
 
 package org.semanticweb.owlapi.change;
 
+import org.semanticweb.owlapi.model.OWLEntity;
 import org.semanticweb.owlapi.model.OWLImportsDeclaration;
+
+import java.util.Collections;
+import java.util.Set;
 
 /**
  * Author: Matthew Horridge<br>
@@ -52,6 +56,7 @@ import org.semanticweb.owlapi.model.OWLImportsDeclaration;
  * </p>
  */
 public abstract class ImportChangeData extends OWLOntologyChangeData {
+
     private static final long serialVersionUID = 30402L;
 
     private final OWLImportsDeclaration declaration;
@@ -75,5 +80,10 @@ public abstract class ImportChangeData extends OWLOntologyChangeData {
      */
     public OWLImportsDeclaration getDeclaration() {
         return declaration;
+    }
+
+    @Override
+    public Set<OWLEntity> getSignature() {
+        return Collections.emptySet();
     }
 }

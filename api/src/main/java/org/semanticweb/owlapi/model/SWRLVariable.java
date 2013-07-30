@@ -51,12 +51,13 @@ package org.semanticweb.owlapi.model;
  * Represents a variable that can appear in an atom. Variable can either be place holders for individuals
  * or literals. Variables are named with IRIs.
  */
-public interface SWRLVariable extends SWRLIArgument, SWRLDArgument {
+public interface SWRLVariable extends SWRLIArgument, SWRLDArgument, HasIRI {
 
     /**
      * Gets the variable IRI that names the variable
      * @return The IRI that represents the name of the variable
      */
+    @Override
     IRI getIRI();
 
 }

@@ -54,7 +54,7 @@ package org.semanticweb.owlapi.model;
  * other concrete syntaxes to "abc".  Literals of the form "abc@langTag"^^rdf:PlainLiteral where "langTag" is not empty
  * are abbreviated in functional-style syntax documents (and other concrete syntaxes) to "abc"@langTag whenever possible.
  */
-public interface OWLLiteral extends OWLObject, OWLAnnotationObject, OWLAnnotationValue, OWLPropertyAssertionObject {
+public interface OWLLiteral extends OWLObject, OWLAnnotationObject, OWLAnnotationValue, OWLPropertyAssertionObject, OWLPrimitive {
 
     /**
      * Determines if the datatype of this literal is <code>rdf:PlainLiteral</code>.  Note that literals that are
