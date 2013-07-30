@@ -39,6 +39,11 @@
 
 package org.semanticweb.owlapi.vocab;
 
+
+import static org.semanticweb.owlapi.vocab.Namespaces.BuiltIn.BUILT_IN;
+import static org.semanticweb.owlapi.vocab.Namespaces.BuiltIn.NOT_BUILT_IN;
+import static org.semanticweb.owlapi.vocab.Namespaces.Status.IN_USE;
+
 /**
  * Author: Matthew Horridge<br>
  * The University Of Manchester<br>
@@ -47,179 +52,202 @@ package org.semanticweb.owlapi.vocab;
  */
 public enum Namespaces {
 
+    
     //    OWL2XML("http://www.w3.org/2006/12/owl2-xml#"),
 
     /**
-     * The OWL 2 namespace is here for legacy reasons.
+     * The OWL 2 namespace is here for Status.LEGACY reasons.
      */
-    OWL2("owl2", "http://www.w3.org/2006/12/owl2#", false, false),
+    OWL2("owl2", "http://www.w3.org/2006/12/owl2#", Status.LEGACY, NOT_BUILT_IN),
 
     /**
-     * legacy
+     * Status.LEGACY
      */
-    OWL11XML("owl11xml", "http://www.w3.org/2006/12/owl11-xml#", false, false),
+    OWL11XML("owl11xml", "http://www.w3.org/2006/12/owl11-xml#", Status.LEGACY, NOT_BUILT_IN),
 
 
     /**
-     * The OWL 1.1 namespace is here for legacy reasons.
+     * The OWL 1.1 namespace is here for Status.LEGACY reasons.
      */
-    OWL11("owl11", "http://www.w3.org/2006/12/owl11#", false, false),
+    OWL11("owl11", "http://www.w3.org/2006/12/owl11#", Status.LEGACY, NOT_BUILT_IN),
 
-    /**
-     * OWL namespace
-     */
-    OWL("owl", "http://www.w3.org/2002/07/owl#", true, true),
-    /**
-     * RDFS namespace
-     */
-    RDFS("rdfs", "http://www.w3.org/2000/01/rdf-schema#", true, true),
-    /**
-     * RDF namespace
-     */
-    RDF("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#", true, true),
-    /**
-     * XSD namespace
-     */
-    XSD("xsd", "http://www.w3.org/2001/XMLSchema#", true, true),
-    /**
-     * XML namespace
-     */
-    XML("xml", "http://www.w3.org/XML/1998/namespace", true, false),
-    /**
-     * SWRL namespace
-     */
-    SWRL("swrl", "http://www.w3.org/2003/11/swrl#", true, false),
-    /**
-     * SWRLB namespace
-     */
-    SWRLB("swrlb", "http://www.w3.org/2003/11/swrlb#", true, false),
-    /**
-     * SKOS namespace
-     */
-    SKOS("skos", "http://www.w3.org/2004/02/skos/core#", true, false),
-    
+
+    OWL("owl", "http://www.w3.org/2002/07/owl#", IN_USE, BUILT_IN),
+
+    RDFS("rdfs", "http://www.w3.org/2000/01/rdf-schema#", IN_USE, BUILT_IN),
+
+    RDF("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#", IN_USE, BUILT_IN),
+
+    XSD("xsd", "http://www.w3.org/2001/XMLSchema#", IN_USE, BUILT_IN),
+
+    XML("xml", "http://www.w3.org/XML/1998/namespace", IN_USE, NOT_BUILT_IN),
+
+    SWRL("swrl", "http://www.w3.org/2003/11/swrl#", IN_USE, NOT_BUILT_IN),
+
+    SWRLB("swrlb", "http://www.w3.org/2003/11/swrlb#", IN_USE, NOT_BUILT_IN),
+
+    SKOS("skos", "http://www.w3.org/2004/02/skos/core#", IN_USE, NOT_BUILT_IN),
+
     // Further namespaces from the RDFa Core Initial Context
     // http://www.w3.org/2011/rdfa-context/rdfa-1.1
-    
-    /**GRDDL namespace*/
-    GRDDL("grddl", "http://www.w3.org/2003/g/data-view#", true, false),
-    /**MA namespace*/
-    MA("ma", "http://www.w3.org/ns/ma-ont#", true, false),
-    /**PROV namespace*/
-    PROV("prov", "http://www.w3.org/ns/prov#", true, false),
-    /**RDFA namespace*/
-    RDFA("rdfa", "http://www.w3.org/ns/rdfa#", true, false),
-    /**RIF namespace*/
-    RIF("rif", "http://www.w3.org/2007/rif#", true, false),
-    /**R2RML namespace*/
-    R2RML("rr", "http://www.w3.org/ns/r2rml#", true, false),
-    /**SD namespace*/
-    SD("sd", "http://www.w3.org/ns/sparql-service-description#", true, false),
-    /**SKOSXL namespace*/
-    SKOSXL("skosxl", "http://www.w3.org/2008/05/skos-xl#", true, false),
-    /**POWDER namespace*/
-    POWDER("wdr", "http://www.w3.org/2007/05/powder#", true, false),
-    /**VOID namespace*/
-    VOID("void", "http://rdfs.org/ns/void#", true, false),
-    /**POWDER-S namespace*/
-    POWDERS("wdrs", "http://www.w3.org/2007/05/powder-s#", true, false),
-    /**XHV namespace*/
-    XHV("xhv", "http://www.w3.org/1999/xhtml/vocab#", true, false),
-    
-    
-    /**ORG namespace*/
-    ORG("org", "http://www.w3.org/ns/org#", true, false),
-    /**GLDP namespace*/
-    GLDP("gldp", "http://www.w3.org/ns/people#", true, false),
-    /**CNT namespace*/
-    CNT("cnt", "http://www.w3.org/2008/content#", true, false),
-    /**DCAT namespace*/
-    DCAT("dcat", "http://www.w3.org/ns/dcat#", true, false),
-    /**EARL namespace*/
-    EARL("earl", "http://www.w3.org/ns/earl#", true, false),
-    /**HT namespace*/
-    HT("ht", "http://www.w3.org/2006/http#", true, false),
-    /**PTR namespace*/
-    PTR("ptr", "http://www.w3.org/2009/pointers#", true, false),
-    
-    
+
+
+    GRDDL("grddl", "http://www.w3.org/2003/g/data-view#", IN_USE, NOT_BUILT_IN),
+
+    MA("ma", "http://www.w3.org/ns/ma-ont#", IN_USE, NOT_BUILT_IN),
+
+    PROV("prov", "http://www.w3.org/ns/prov#", IN_USE, NOT_BUILT_IN),
+
+    RDFA("rdfa", "http://www.w3.org/ns/rdfa#", IN_USE, NOT_BUILT_IN),
+
+    RIF("rif", "http://www.w3.org/2007/rif#", IN_USE, NOT_BUILT_IN),
+
+    R2RML("rr", "http://www.w3.org/ns/r2rml#", IN_USE, NOT_BUILT_IN),
+
+    SD("sd", "http://www.w3.org/ns/sparql-service-description#", IN_USE, NOT_BUILT_IN),
+
+    SKOSXL("skosxl", "http://www.w3.org/2008/05/skos-xl#", IN_USE, NOT_BUILT_IN),
+
+    POWDER("wdr", "http://www.w3.org/2007/05/powder#", IN_USE, NOT_BUILT_IN),
+
+    VOID("void", "http://rdfs.org/ns/void#", IN_USE, NOT_BUILT_IN),
+
+    POWDERS("wdrs", "http://www.w3.org/2007/05/powder-s#", IN_USE, NOT_BUILT_IN),
+
+    XHV("xhv", "http://www.w3.org/1999/xhtml/vocab#", IN_USE, NOT_BUILT_IN),
+
+
+    ORG("org", "http://www.w3.org/ns/org#", IN_USE, NOT_BUILT_IN),
+
+    GLDP("gldp", "http://www.w3.org/ns/people#", IN_USE, NOT_BUILT_IN),
+
+    CNT("cnt", "http://www.w3.org/2008/content#", IN_USE, NOT_BUILT_IN),
+
+    DCAT("dcat", "http://www.w3.org/ns/dcat#", IN_USE, NOT_BUILT_IN),
+
+    EARL("earl", "http://www.w3.org/ns/earl#", IN_USE, NOT_BUILT_IN),
+
+    HT("ht", "http://www.w3.org/2006/http#", IN_USE, NOT_BUILT_IN),
+
+    PTR("ptr", "http://www.w3.org/2009/pointers#", IN_USE, NOT_BUILT_IN),
+
+
     // Other widely used Semantic Web prefixes
-    
-    /**CC namespace*/
-    CC("cc", "http://creativecommons.org/ns#", true, false),
-    /**CTAG namespace*/
-    CTAG("ctag", "http://commontag.org/ns#", true, false),
-    /**DCTERMS namespace*/
-    DCTERMS("dcterms", "http://purl.org/dc/terms/", true, false),
-    /**DC elements namespace*/
-    DC("dc", "http://purl.org/dc/elements/1.1/", true, false),
-    /**FOAF namespace*/
-    FOAF("foaf", "http://xmlns.com/foaf/0.1/", true, false),
-    /**GR namespace*/
-    GR("gr", "http://purl.org/goodrelations/v1#", true, false),
-    /**ICAL namespace*/
-    ICAL("ical", "http://www.w3.org/2002/12/cal/icaltzd#", true, false),
-    /**OG namespace*/
-    OG("og", "http://ogp.me/ns#", true, false),
-    /**REV namespace*/
-    REV("rev", "http://purl.org/stuff/rev#", true, false),
-    /**SIOC namespace*/
-    SIOC("sioc", "http://rdfs.org/sioc/ns#", true, false),
-    /**VCARD namespace*/
-    VCARD("vcard", "http://www.w3.org/2006/vcard/ns#", true, false),
-    /**SCHEMA namespace*/
-    SCHEMA("schema", "http://schema.org/", true, false),
-    
-    /**GEO namespace*/
-    GEO("geo", "http://www.w3.org/2003/01/geo/wgs84_pos#", true, false),
-    
-    ;
+
+
+    CC("cc", "http://creativecommons.org/ns#", IN_USE, NOT_BUILT_IN),
+
+    CTAG("ctag", "http://commontag.org/ns#", IN_USE, NOT_BUILT_IN),
+
+    DCTERMS("dcterms", "http://purl.org/dc/terms/", IN_USE, NOT_BUILT_IN),
+
+    DC("dc", "http://purl.org/dc/elements/1.1/", IN_USE, NOT_BUILT_IN),
+
+    FOAF("foaf", "http://xmlns.com/foaf/0.1/", IN_USE, NOT_BUILT_IN),
+
+    GR("gr", "http://purl.org/goodrelations/v1#", IN_USE, NOT_BUILT_IN),
+
+    ICAL("ical", "http://www.w3.org/2002/12/cal/icaltzd#", IN_USE, NOT_BUILT_IN),
+
+    OG("og", "http://ogp.me/ns#", IN_USE, NOT_BUILT_IN),
+
+    REV("rev", "http://purl.org/stuff/rev#", IN_USE, NOT_BUILT_IN),
+
+    SIOC("sioc", "http://rdfs.org/sioc/ns#", IN_USE, NOT_BUILT_IN),
+
+    VCARD("vcard", "http://www.w3.org/2006/vcard/ns#", IN_USE, NOT_BUILT_IN),
+
+    SCHEMA("schema", "http://schema.org/", IN_USE, NOT_BUILT_IN),
+
+
+    GEO("geo", "http://www.w3.org/2003/01/geo/wgs84_pos#", IN_USE, NOT_BUILT_IN),
+
+    SC("sc", "http://purl.org/science/owl/sciencecommons/", IN_USE, NOT_BUILT_IN),
+
+    FB("fb", "http://rdf.freebase.com/ns/", Status.LEGACY, NOT_BUILT_IN),
+
+    GEONAMES("geonames", "http://www.geonames.org/ontology#", Status.LEGACY, NOT_BUILT_IN),
+
+
+    // DBpedia
+
+    DBPEDIA("dbpedia", "http://dbpedia.org/resource/", IN_USE, NOT_BUILT_IN),
+
+    DBP("dbp", "http://dbpedia.org/property/", IN_USE, NOT_BUILT_IN),
+
+    DBO("dbo", "http://dbpedia.org/ontology/", IN_USE, NOT_BUILT_IN),
+
+    YAGO("yago", "http://dbpedia.org/class/yago/", IN_USE, NOT_BUILT_IN);
+
 
     final String prefix;
 
     final String ns;
 
-    final boolean inUse;
+    final Status status;
 
-    final boolean builtIn;
+    final BuiltIn builtIn;
 
-    Namespaces(String prefix, String ns, boolean inUse, boolean builtIn) {
+    Namespaces(String prefix, String ns, Status status, BuiltIn builtIn) {
         this.prefix = prefix;
         this.ns = ns;
-        this.inUse = inUse;
+        this.status = status;
         this.builtIn = builtIn;
     }
 
     /**
-     * @return A short, human-readable, prefix name that matches, and expands to the full IRI.
+     * @return A short, human-readable, prefix name that matches, and expands to the full IRI. Not {@code null}.
      */
     public String getPrefixName() {
         return prefix;
     }
 
     /**
-     * @return The prefix IRI which matches the prefix name.
+     * @return The prefix IRI which matches the prefix name.  Not {@code null}.
      */
     public String getPrefixIRI() {
         return ns;
     }
 
     /**
-     * @return True if this namespace is not obsolete and is currently in active use.
+     * @return {@code true} if this namespace is not obsolete and is currently in active use, otherwise {@code false}.
      */
     public boolean isInUse() {
-        return inUse;
+        return status == IN_USE;
     }
 
     /**
-     * @return True if this namespace is defined as a core part of the OWL-2 specification.
+     * @return {@code true} if this namespace is defined as a core part of the OWL-2 specification, otherwise
+     * {@code false}.
      */
     public boolean isBuiltIn() {
-        return builtIn;
+        return builtIn == BUILT_IN;
     }
 
     @Override
     public String toString() {
         return ns;
     }
+
+
+    /**
+     * Indicates that a prefix is builtin - i.e. that it is either owl, rdf, rdfs, or xsd
+     */
+    public static enum BuiltIn {
+
+        BUILT_IN,
+
+        NOT_BUILT_IN
+    }
+
+    /**
+     * Indicates whether a prefix is a legacy prefix or not.
+     */
+    public static enum Status {
+
+        LEGACY,
+
+        IN_USE
+    }
+
 }
