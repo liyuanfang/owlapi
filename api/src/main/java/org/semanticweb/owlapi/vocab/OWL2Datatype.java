@@ -48,21 +48,16 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
 
-import org.semanticweb.owlapi.model.IRI;
-import org.semanticweb.owlapi.model.OWLDataFactory;
-import org.semanticweb.owlapi.model.OWLDatatype;
-import org.semanticweb.owlapi.model.OWLRuntimeException;
-
-
+import org.semanticweb.owlapi.model.*;
 
 
 /**
- * Author: Matthew Horridge<br> The University Of Manchester<br> Information Management Group<br> Date:
- * 11-Nov-2008<br><br>
- * An enumeration of the datatypes in the OWL 2 specification.  These are the datatypes in the OWL 2 datatype map.
- */
+* Author: Matthew Horridge<br> The University Of Manchester<br> Information Management Group<br> Date:
+* 11-Nov-2008<br><br>
+* An enumeration of the datatypes in the OWL 2 specification.  These are the datatypes in the OWL 2 datatype map.
+*/
 @SuppressWarnings("javadoc")
-public enum OWL2Datatype {
+public enum OWL2Datatype implements HasIRI {
 
     RDF_XML_LITERAL(Namespaces.RDF, "XMLLiteral", Category.STRING_WITHOUT_LANGUAGE_TAG, false, ".*"),
 
@@ -289,7 +284,7 @@ public enum OWL2Datatype {
      * @return An {@link OWLDatatype} that has the same IRI as this {@link OWL2Datatype}.  Not {@code null}.
      */
     public OWLDatatype getDatatype(OWLDataFactory factory){
-        return factory.getOWLDatatype( getIRI() );
+        return factory.getOWLDatatype(getIRI());
     }
 
     /**
