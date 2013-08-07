@@ -53,7 +53,8 @@ import org.semanticweb.owlapi.vocab.OWLFacet;
  * throw IllegalArgumentException if null values are passed where they are not
  * allowed in the documentation.
  */
-public interface OWLDataFactory extends SWRLDataFactory, OWLEntityProvider, OWLEntityByTypeProvider {
+public interface OWLDataFactory extends SWRLDataFactory, OWLEntityProvider, OWLEntityByTypeProvider, OWLAnonymousIndividualProvider, OWLAnonymousIndividualByIdProvider {
+
 	////////////////////////////////////////////////////////////////////////////////////
 	//
 	// Entities and data stuff
@@ -221,23 +222,6 @@ public interface OWLDataFactory extends SWRLDataFactory, OWLEntityProvider, OWLE
 	OWLNamedIndividual getOWLNamedIndividual(String abbreviatedIRI,
 			PrefixManager prefixManager);
 
-	/**
-	 * Gets an anonymous individual that has a specific ID.
-	 *
-	 * @param id
-	 *            The node ID. Note that the ID will be prefixed with _: if it
-	 *            is not specified with _: as a prefix. Cannot be null.
-	 * @return An anonymous individual.
-	 */
-	OWLAnonymousIndividual getOWLAnonymousIndividual(String id);
-
-	/**
-	 * Gets an anonymous individual. The node ID for the individual will be
-	 * generated automatically
-	 *
-	 * @return The anonymous individual
-	 */
-	OWLAnonymousIndividual getOWLAnonymousIndividual();
 
 	/**
 	 * Gets an OWLAnnotationProperty that has an IRI that is obtained by
