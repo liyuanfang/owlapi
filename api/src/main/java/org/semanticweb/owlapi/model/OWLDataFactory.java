@@ -53,7 +53,7 @@ import org.semanticweb.owlapi.vocab.OWLFacet;
  * throw IllegalArgumentException if null values are passed where they are not
  * allowed in the documentation.
  */
-public interface OWLDataFactory extends SWRLDataFactory, OWLEntityFactory {
+public interface OWLDataFactory extends SWRLDataFactory, OWLEntityProvider, OWLEntityByTypeProvider {
 	////////////////////////////////////////////////////////////////////////////////////
 	//
 	// Entities and data stuff
@@ -96,26 +96,6 @@ public interface OWLDataFactory extends SWRLDataFactory, OWLEntityFactory {
 	 */
 	OWLDatatype getTopDatatype();
 
-	/**
-	 * Gets an entity that has the specified IRI and is of the specified type.
-	 *
-	 * @param entityType
-	 *            The type of the entity that will be returned. Cannot be null.
-	 * @param iri
-	 *            The IRI of the entity that will be returned. Cannot be null.
-	 * @return An entity that has the same IRI as this entity and is of the
-	 *         specified type
-	 */
-	<E extends OWLEntity> E getOWLEntity(EntityType<E> entityType, IRI iri);
-
-	/**
-	 * Gets an OWL class that has the specified IRI
-	 *
-	 * @param iri
-	 *            The IRI of the class. Cannot be null.
-	 * @return The object representing the class that has the specified IRI
-	 */
-	OWLClass getOWLClass(IRI iri);
 
 	/**
 	 * Gets an OWLClass that has an IRI that is obtained by expanding an
@@ -144,16 +124,6 @@ public interface OWLDataFactory extends SWRLDataFactory, OWLEntityFactory {
 	 *             have a mapping to a prefix in the specified prefix manager.
 	 */
 	OWLClass getOWLClass(String abbreviatedIRI, PrefixManager prefixManager);
-
-	/**
-	 * Gets an OWL object property that has the specified IRI
-	 *
-	 * @param iri
-	 *            The IRI of the object property to be obtained. Cannot be null.
-	 * @return The object representing the object property that has the
-	 *         specified IRI
-	 */
-	OWLObjectProperty getOWLObjectProperty(IRI iri);
 
 	/**
 	 * Gets an OWLObjectProperty that has an IRI that is obtained by expanding
@@ -195,16 +165,6 @@ public interface OWLDataFactory extends SWRLDataFactory, OWLEntityFactory {
 	OWLObjectInverseOf getOWLObjectInverseOf(OWLObjectPropertyExpression property);
 
 	/**
-	 * Gets an OWL data property that has the specified IRI
-	 *
-	 * @param iri
-	 *            The IRI of the data property to be obtained. Cannot be null.
-	 * @return The object representing the data property that has the specified
-	 *         IRI
-	 */
-	OWLDataProperty getOWLDataProperty(IRI iri);
-
-	/**
 	 * Gets an OWLDataProperty that has an IRI that is obtained by expanding an
 	 * abbreviated name using an appropriate prefix mapping. See <a
 	 * href="http://www.w3.org/TR/2009/REC-owl2-syntax-20091027/#IRIs">The OWL 2
@@ -231,15 +191,6 @@ public interface OWLDataFactory extends SWRLDataFactory, OWLEntityFactory {
 	 *             have a mapping to a prefix in the specified prefix manager.
 	 */
 	OWLDataProperty getOWLDataProperty(String abbreviatedIRI, PrefixManager prefixManager);
-
-	/**
-	 * Gets an OWL individual that has the specified IRI
-	 *
-	 * @param iri
-	 *            The IRI of the individual to be obtained. Cannot be null.
-	 * @return The object representing the individual that has the specified IRI
-	 */
-	OWLNamedIndividual getOWLNamedIndividual(IRI iri);
 
 	/**
 	 * Gets an OWLNamedIndividual that has an IRI that is obtained by expanding
@@ -287,16 +238,6 @@ public interface OWLDataFactory extends SWRLDataFactory, OWLEntityFactory {
 	 * @return The anonymous individual
 	 */
 	OWLAnonymousIndividual getOWLAnonymousIndividual();
-
-	/**
-	 * Gets an OWLAnnotationProperty that has the specified IRI
-	 *
-	 * @param iri
-	 *            The IRI of the annotation property to be obtained. Cannot be
-	 *            null.
-	 * @return An OWLAnnotationProperty with the specified IRI
-	 */
-	OWLAnnotationProperty getOWLAnnotationProperty(IRI iri);
 
 	/**
 	 * Gets an OWLAnnotationProperty that has an IRI that is obtained by
