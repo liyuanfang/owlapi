@@ -53,7 +53,7 @@ import org.semanticweb.owlapi.vocab.OWLFacet;
  * throw IllegalArgumentException if null values are passed where they are not
  * allowed in the documentation.
  */
-public interface OWLDataFactory extends SWRLDataFactory {
+public interface OWLDataFactory extends SWRLDataFactory, OWLEntityFactory {
 	////////////////////////////////////////////////////////////////////////////////////
 	//
 	// Entities and data stuff

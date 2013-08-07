@@ -58,7 +58,7 @@ import org.semanticweb.owlapi.vocab.OWLRDFVocabulary;
  * Date: 26-Oct-2006<br>
  * <br>
  */
-public class OWLDataFactoryImpl implements OWLDataFactory, Serializable {
+public class OWLDataFactoryImpl implements OWLDataFactory, Serializable, OWLClassFactory {
 
 
     private static final String ANNOTATIONS = "annotations";
