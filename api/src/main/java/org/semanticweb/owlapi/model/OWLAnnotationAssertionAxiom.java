@@ -63,13 +63,15 @@ public interface OWLAnnotationAssertionAxiom extends OWLAnnotationAxiom, HasSubj
      */
     OWLAnnotationProperty getProperty();
 
-    /**
-     * Gets the annotation value.  This is either an {@link org.semanticweb.owlapi.model.IRI}, an {@link org.semanticweb.owlapi.model.OWLAnonymousIndividual}
-     * or an {@link OWLLiteral}. Annotation values can be visited with an {@link org.semanticweb.owlapi.model.OWLAnnotationValueVisitor}.
-     * @see {@link org.semanticweb.owlapi.model.OWLAnnotationValueVisitor}
-     * @see {@link OWLAnnotationValueVisitorEx}
-     * @return The annotation value.
-     */
+    /** Gets the annotation value. This is either an
+     * {@link org.semanticweb.owlapi.model.IRI}, an
+     * {@link org.semanticweb.owlapi.model.OWLAnonymousIndividual} or an
+     * {@link OWLLiteral}. Annotation values can be visited with an
+     * {@link org.semanticweb.owlapi.model.OWLAnnotationValueVisitor}.
+     * 
+     * @see org.semanticweb.owlapi.model.OWLAnnotationValueVisitor
+     * @see org.semanticweb.owlapi.model.OWLAnnotationValueVisitorEx
+     * @return The annotation value. */
     OWLAnnotationValue getValue();
 
     /**
@@ -79,12 +81,12 @@ public interface OWLAnnotationAssertionAxiom extends OWLAnnotationAxiom, HasSubj
      */
     OWLAnnotation getAnnotation();
 
-    /**
-     * Determines if this annotation assertion deprecates the IRI that is the subject of the annotation.
-     * @return <code>true</code> if this annotation assertion deprecates the subject IRI of the assertion, otherwise
-     * <code>false</code>.
-     * @see {@link OWLAnnotation#isDeprecatedIRIAnnotation()}
-     */
+    /** Determines if this annotation assertion deprecates the IRI that is the
+     * subject of the annotation.
+     * 
+     * @return <code>true</code> if this annotation assertion deprecates the
+     *         subject IRI of the assertion, otherwise <code>false</code>.
+     * @see org.semanticweb.owlapi.model.OWLAnnotation#isDeprecatedIRIAnnotation() */
     boolean isDeprecatedIRIAssertion();
 
     @Override

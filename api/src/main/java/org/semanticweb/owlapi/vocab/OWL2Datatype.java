@@ -49,7 +49,11 @@ import java.util.TreeSet;
 import java.util.regex.Pattern;
 
 import org.semanticweb.owlapi.model.IRI;
+import org.semanticweb.owlapi.model.OWLDataFactory;
+import org.semanticweb.owlapi.model.OWLDatatype;
 import org.semanticweb.owlapi.model.OWLRuntimeException;
+
+
 
 
 /**
@@ -142,16 +146,16 @@ public enum OWL2Datatype {
 
 
     /**
-     * Gets all of the built in datatype URIs
-     * @return A set of URIs corresponding to the built in datatype URIs
+     * Gets all of the built in datatype IRIs.
+     * @return A set of IRIs corresponding to the set of IRIs of all built in {@link OWL2Datatype}s.  Not {@code null}.
      */
     public static Set<IRI> getDatatypeIRIs() {
         return ALL_IRIS;
     }
 
     /**
-     * Gets the Pattern that specifies the regular expression for a datatype
-     * @return The Pattern, or <code>null</code>
+     * Gets the Pattern that specifies the regular expression for the allowed lexical values of a datatype.
+     * @return The Pattern.  Not {@code null}.
      */
     public Pattern getPattern() {
         return pattern;
@@ -161,8 +165,8 @@ public enum OWL2Datatype {
     /**
      * Determines if the specified IRI identifies a built in datatype.
      * @param datatypeIRI The datatype IRI
-     * @return <code>true</code> if the IRI identifies a built in datatype, or
-     *         <code>false</code> if the IRI does not identify a built in datatype.
+     * @return {@code true} if the IRI identifies a built in datatype, or
+     *         {@code false} if the IRI does not identify a built in datatype.
      */
     public static boolean isBuiltIn(IRI datatypeIRI) {
         return ALL_IRIS.contains(datatypeIRI);
@@ -170,11 +174,11 @@ public enum OWL2Datatype {
 
 
     /**
-     * Given a URI that identifies an OWLDatatype, this method obtains the
-     * corresponding OWLDatatypeVocabulary
-     * @param datatype The datatype URI
-     * @return The OWLDatatypeVocabulary
-     * @throws OWLRuntimeException if the specified URI is not a built in datatype URI
+     * Given an IRI that identifies an {@link OWLDatatype}, this method obtains the
+     * corresponding {@link OWL2Datatype}.
+     * @param datatype The datatype IRI.  Not {@code null}.
+     * @return The {@link OWL2Datatype} that has the specified {@link IRI}.
+     * @throws OWLRuntimeException if the specified IRI is not a built in datatype IRI.
      */
     public static OWL2Datatype getDatatype(IRI datatype) {
         if (!isBuiltIn(datatype)) {
@@ -236,6 +240,7 @@ public enum OWL2Datatype {
     /**
      * Gets the URI of this datatype
      * @return The URI that identifies the datatype
+     * @deprecated Use {@link #getIRI()}.
      */
     public URI getURI() {
         return iri.toURI();
@@ -252,7 +257,7 @@ public enum OWL2Datatype {
 
     /**
      * Determines if this datatype is a numeric datatype
-     * @return <code>true</code> if this datatype is a numeric datatype
+     * @return {@code true} if this datatype is a numeric datatype
      */
     public boolean isNumeric() {
         return category.equals(Category.NUMBER);
@@ -260,8 +265,8 @@ public enum OWL2Datatype {
 
     /**
      * Determines whether or not this datatype is finite.
-     * @return <code>true</code> if this datatype is finite, or
-     *         <code>false</code> if this datatype is infinite.
+     * @return {@code true} if this datatype is finite, or
+     *         {@code false} if this datatype is infinite.
      */
     public boolean isFinite() {
         return finite;
@@ -279,9 +284,18 @@ public enum OWL2Datatype {
 
 
     /**
+     * Gets the equivalent OWLDatatype from the given factory.
+     * @param factory the OWLDataFactory.  Not {@code null}.
+     * @return An {@link OWLDatatype} that has the same IRI as this {@link OWL2Datatype}.  Not {@code null}.
+     */
+    public OWLDatatype getDatatype(OWLDataFactory factory){
+        return factory.getOWLDatatype( getIRI() );
+    }
+
+    /**
      * Determines if the specified string is the lexical space of this datatype
      * @param s The string to test
-     * @return <code>true</code> if the string is in the lexical space, otherwise <code>false</code>
+     * @return {@code true} if the string is in the lexical space, otherwise {@code false}
      */
     public boolean isInLexicalSpace(String s) {
         return pattern.matcher(s).matches();

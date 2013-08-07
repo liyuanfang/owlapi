@@ -209,7 +209,29 @@ public class IRI implements OWLAnnotationSubject, OWLAnnotationValue, SWRLPredic
      * @return An IRI whose characters consist of prefix + suffix.
      * @since 3.3 */
     public static IRI create(String prefix, String suffix) {
-        return new IRI(prefix, suffix);
+        if(prefix == null) {
+            return new IRI(suffix);
+        } else if(suffix == null) {
+            // suffix set deliberately to null is used only in blank node
+            // management
+            // this is not great but blank nodes should be changed to not refer
+            // to IRIs at all
+            // XXX address blank node issues with iris
+            return new IRI(prefix);
+        } else {
+            int index = XMLUtils.getNCNameSuffixIndex(prefix);
+            int test = XMLUtils.getNCNameSuffixIndex(suffix);
+            if (index == -1 && test == 0) {
+                // the prefix does not contain an ncname character and there is
+                // no illegal character in the suffix
+                // the split is therefore correct
+                return new IRI(prefix, suffix);
+            }
+            // otherwise the split is wrong; we could obtain the right split by
+            // using index and test, but it's just as easy to use the other
+            // constructor
+            return new IRI(prefix + suffix);
+        }
     }
 
     /** @param file
