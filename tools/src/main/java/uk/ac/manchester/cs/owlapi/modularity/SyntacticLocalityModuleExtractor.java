@@ -638,6 +638,7 @@ public class SyntacticLocalityModuleExtractor implements OntologySegmenter {
                     }
                 }
                 Set<OWLAxiom> moduleAsSet = ontologyAxiomSet.toSet(subOnt);
+                manager.removeOntology(ontology);
                 return enrich(moduleAsSet, seedSig, verbose);
             }
             default:
